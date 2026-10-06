@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>明哲｜个人简介</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:#fff;background:#050816}
+body{overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 20% 20%,#183a67 0,transparent 35%),radial-gradient(circle at 80% 70%,#3b1761 0,transparent 35%),linear-gradient(135deg,#02040b,#0a1024 55%,#050816)}
+.grid{position:fixed;inset:0;z-index:-2;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:50px 50px;transform:perspective(500px) rotateX(55deg) scale(1.8);transform-origin:center bottom}
+.orb{position:fixed;border-radius:50%;filter:blur(3px);opacity:.55;z-index:-1;animation:float 10s ease-in-out infinite}
+.o1{width:180px;height:180px;background:#24b7ff;left:-60px;top:20%;box-shadow:0 0 100px #24b7ff}
+.o2{width:230px;height:230px;background:#a33cff;right:-80px;bottom:8%;box-shadow:0 0 120px #a33cff;animation-delay:-4s}
+@keyframes float{50%{transform:translate(35px,-30px) scale(1.08)}}
+nav{position:fixed;top:0;left:0;right:0;padding:22px 7%;display:flex;justify-content:space-between;align-items:center;background:rgba(3,6,18,.35);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);z-index:10}
+.logo{font-weight:800;letter-spacing:4px}.dot{display:inline-block;width:8px;height:8px;background:#58d8ff;border-radius:50%;box-shadow:0 0 15px #58d8ff;margin-left:5px}
+nav a{color:#dce8ff;text-decoration:none;margin-left:24px;font-size:14px}
+main{max-width:1100px;margin:auto;padding:150px 7% 90px}
+.hero{min-height:70vh;display:flex;align-items:center}
+.kicker{color:#7edfff;letter-spacing:5px;font-size:13px;margin-bottom:18px}
+h1{font-size:clamp(52px,10vw,110px);line-height:.95;margin:0 0 25px;letter-spacing:-5px}
+h1 span{background:linear-gradient(90deg,#fff,#83ddff,#c28cff);-webkit-background-clip:text;color:transparent}
+.quote{font-size:clamp(20px,3vw,32px);font-weight:700;margin:0 0 15px}
+.sub{color:#aebbd5;line-height:1.9;max-width:650px;font-size:16px}
+.btn{display:inline-block;margin-top:30px;padding:13px 22px;border:1px solid rgba(126,223,255,.5);border-radius:999px;color:white;text-decoration:none;background:rgba(126,223,255,.08);box-shadow:0 0 30px rgba(58,201,255,.12);transition:.3s}
+.btn:hover{transform:translateY(-3px);background:rgba(126,223,255,.16)}
+section{padding:80px 0}.card{padding:35px;border-radius:28px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(18px);box-shadow:0 25px 80px rgba(0,0,0,.25)}
+h2{font-size:35px;margin:0 0 18px}.muted{color:#aebbd5;line-height:1.9}.tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.tag{padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);color:#dce8ff}
+footer{text-align:center;color:#6f7d99;padding:30px}
+.reveal{opacity:0;transform:translateY(25px);transition:1s}.show{opacity:1;transform:none}
+@media(max-width:700px){nav{padding:18px 5%}nav a{display:none}main{padding:125px 5% 50px}.hero{min-height:75vh}.card{padding:25px}h1{letter-spacing:-3px}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="grid"></div><div class="orb o1"></div><div class="orb o2"></div>
+<nav><div class="logo">MINGZHE<span class="dot"></span></div><div><a href="#about">关于我</a><a href="#explore">探索</a></div></nav>
+<main>
+<section class="hero reveal">
+<div>
+<div class="kicker">PERSONAL PROFILE / 2026</div>
+<h1>你好，我是<br><span>明哲</span></h1>
+<p class="quote">不热爱学习，热爱探索。</p>
+<p class="sub">我喜欢发现新鲜事物、尝试新的可能。比起把答案背下来，我更愿意亲自走出去看看这个世界到底还有什么值得探索。</p>
+<a class="btn" href="#about">探索我的世界 ↓</a>
+</div>
+</section>
+<section id="about" class="reveal"><div class="card"><h2>关于我</h2><p class="muted">这是一个属于我的个人空间。这里记录我的想法、兴趣、正在探索的方向，以及一路上遇见的新东西。</p><div class="tags"><span class="tag">探索</span><span class="tag">AI</span><span class="tag">科技</span><span class="tag">创造</span><span class="tag">未来</span></div></div></section>
+<section id="explore" class="reveal"><div class="card"><h2>正在探索</h2><p class="muted">保持好奇，保持行动。世界很大，答案不一定写在书里，也可能藏在下一次尝试中。</p></div></section>
+</main>
+<footer>© 2026 明哲 · Keep Exploring.</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('show')),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+document.addEventListener('mousemove',e=>{document.querySelector('.grid').style.transform=`perspective(500px) rotateX(${55+(e.clientY/innerHeight-0.5)*3}deg) rotateZ(${(e.clientX/innerWidth-0.5)*2}deg) scale(1.8)`});
+</script>
+</body>
+</html>
